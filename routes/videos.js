@@ -72,4 +72,46 @@ router.get("/:id", (req, res) => {
   });
 });
 
+
+// POST endpoint to add a comment to a video
+router.post("/:id/comments", (req, res) => {
+  const videos = getVideos();
+  const videoId = req.params.id;
+  const newComment = {
+      id: crypto.randomUUID(),
+      name: req.body.name || "Anonymous",
+      comment: req.body.comment,
+      timestamp: new Date()
+  };
+
+  const video = videos.find(video => video.id === videoId);
+  if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+  }
+
+  video.comments.push(newComment);
+  setVideos(videos);
+  res.status(201).json(newComment);
+});
+
+// DELETE endpoint to delete a comment from a video
+router.delete("/:videoId/comments/:commentId", (req, res) => {
+  const videos = getVideos();
+  const { videoId, commentId } = req.params;
+
+  const video = videos.find(video => video.id === videoId);
+  if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+  }
+
+  const commentIndex = video.comments.findIndex(comment => comment.id === commentId);
+  if (commentIndex === -1) {
+      return res.status(404).json({ message: "Comment not found" });
+  }
+
+  video.comments.splice(commentIndex, 1);
+  setVideos(videos);
+  res.status(200).json({ message: "Comment deleted" });
+});
+
 module.exports = router;
