@@ -310,5 +310,27 @@
     "timestamp": "2023-12-10T14:09:16.402Z",
     "image": "http://localhost:8080/images/image1.jpeg",
     "comments": []
+  },
+  {
+    "id": "b5f3f92c-e0a7-4293-88f7-dfed5d89faf8",
+    "title": "This is my Movie Title ",
+    "description": "That was the best movie",
+    "channel": "Channel",
+    "likes": "10,000",
+    "views": "20,000",
+    "timestamp": "2023-12-10T23:02:01.814Z",
+    "image": "http://localhost:8080/images/image1.jpeg",
+    "comments": []
+  },
+  {
+    "id": "b9bddb29-648e-4542-8f22-12325801de2e",
+    "title": "This is another test",
+    "description": " jds;gljasd';fldjs'flkdsjf'lksdjfglsdkfjgds;kl",
+    "channel": "Channel",
+    "likes": "10,000",
+    "views": "20,000",
+    "timestamp": "2023-12-10T23:08:08.035Z",
+    "image": "http://localhost:8080/images/image1.jpeg",
+    "comments": []
   }
 ]
